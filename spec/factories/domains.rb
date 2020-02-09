@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :domain do
-    name { 'domain.com' }
+    name { 'google.com' }
   end
 end

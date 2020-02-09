@@ -2,22 +2,23 @@ class Domain < ApplicationRecord
   include AASM
 
   validates :name, presence: true, uniqueness: true
-  after_create :init_aasm_state
+  after_create :set_aasm_state
 
   aasm do
     state :ok
-    state :error
-
-    event :failure do
-      transitions from: [:ok, :error], to: :error
-    end
+    state :bad, initial: true
 
     event :success do
-      transitions from: [:ok, :error], to: :ok
+      transitions from: [:ok, :bad], to: :ok
+    end
+
+    event :failure do
+      transitions from: [:ok, :bad], to: :bad
     end
   end
 
-  def init_aasm_state
-    # TODO: certificate verificatio service
+  def set_aasm_state
+    result = Domains::CertificateVerificationService.new(self).call
+    result.success? ? success! : failure!
   end
 end

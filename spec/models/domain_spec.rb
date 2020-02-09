@@ -4,7 +4,6 @@ RSpec.describe Domain, type: :model do
   describe '#validations' do
     it 'should validate the presence of the name' do
       domain = build :domain
-
       expect(domain).to be_valid
     end
 
@@ -15,11 +14,10 @@ RSpec.describe Domain, type: :model do
 
     it 'should validate the presence of state error' do
       domain = build :domain
-      expect(domain).to respond_to(:error?)
+      expect(domain).to respond_to(:bad?)
     end
 
     it 'should validate the presence of the name' do
-      create :domain
       domain = build :domain, name: nil
 
       expect(domain).not_to be_valid

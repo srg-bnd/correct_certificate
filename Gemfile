@@ -31,6 +31,10 @@ gem 'aasm'
 # Implementation of a Service Object
 gem 'single_action_service', '0.3.0'
 
+
+# Provides SSL, TLS and general purpose cryptography.
+gem 'openssl'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
