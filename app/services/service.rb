@@ -14,8 +14,7 @@ class Service < SingleActionService::Base
   end
 
   def object_error(object, code = DEFAULT_ERROR)
-    error(data: object.errors.detailed_messages(wrap_attributes_to: :fields),
-          code: code)
+    error(data: object.errors.messages, code: code)
   end
 
   def form_error(object, code = ErrorCodes::FORM)
