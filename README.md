@@ -14,6 +14,19 @@ The monitored parameters:
 
 * Correct Certificate
 
+## Domains
+* format url: `api/v1/path`
+* info: `name` `status`
+* filters: `name`
+* order_column:  `created_at` (default)
+* order_type:  `asc`, `desc` (default)
+* create_params: `name`
+
+method  |path| params|action|
+------------- |-------------| -------------| -------------
+get  |/status|filters, order_column, order_type, page, per_page|domain list
+post |/domain|create_params]|domain create
+
 ## To start development
 
 Install necessary dependencies:
