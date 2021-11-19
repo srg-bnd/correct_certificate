@@ -38,8 +38,11 @@ Create copies of `.example` files and remove the `.example` extension from them:
 Next, change the values of the variables.
 
 Run `bundle install` to install missing gems
+
 Run `rake db:create` to create the database
+
 Run `rake db:migrate`
+
 Run `rspec` to execute tests
 
 ## To run the server
