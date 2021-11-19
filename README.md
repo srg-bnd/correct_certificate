@@ -25,7 +25,7 @@ The monitored parameters:
 method  |path| params|action|
 ------------- |-------------| -------------| -------------
 get  |/status|filters, order_column, order_type, page, per_page|domain list
-post |/domain|create_params]|domain create
+post |/domain|create_params|domain create
 
 ## To start development
 
