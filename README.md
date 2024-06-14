@@ -53,3 +53,7 @@ To run the server without background jobs:
 
 `Server starts on http://localhost:5000/`
 
+
+## License
+
+Correct Certificate is released under the [MIT License](LICENSE.txt).
