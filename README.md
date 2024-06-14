@@ -2,56 +2,96 @@
 
 Monitoring SSL certificates.
 
+
+## Features
+
 The monitored parameters:
-
 * The certificate expires in less than 2 weeks
-
 * The certificate expires in less than 1 week
-
 * The certificate has expired
-
 * SSL error
-
 * Correct Certificate
 
-## Domains
-* format url: `api/v1/path`
-* info: `name` `status`
-* filters: `name`
-* order_column:  `created_at` (default)
-* order_type:  `asc`, `desc` (default)
-* create_params: `name`
 
-method  |path| params|action|
-------------- |-------------| -------------| -------------
-get  |/status|filters, order_column, order_type, page, per_page|domain list
-post |/domain|create_params|domain create
+## API
 
-## To start development
+Format:
+- API: `json`
+- URL: `api/v1/path`
+
+method  |path |action|
+------------- |-------------| -------------
+GET  |/status|state of the domains
+POST |/domain|track the domain
+
+### Description
+
+- GET /status:
+  - params
+    - filters
+        - name: String
+    - order_column
+        - created_at: Datetime (default)
+    - order_type: String
+        - asc
+        - desc (default)
+    - page: Integer
+    - per_page: Integer
+  - response: Array
+    - name: String
+    - status: String
+
+- POST /domain
+  - params
+    - name: String
+  - response: Object
+    - name: String
+    - status: String
+
+
+## Getting Started
+
+### Development
 
 Install necessary dependencies:
 * `Postgresql` -v 11 (or higher)
 * `Redis` with access by password
 
-Create copies of `.example` files and remove the `.example` extension from them:
-* `.env`
-Next, change the values of the variables.
+#### Prepare the server
 
-Run `bundle install` to install missing gems
+Prepare the environment variables:
+```bash
+cp .env.example .env
+```
+And initialize variables in file `.env`:
+- DATABASE_USERNAME
+- DATABASE_PASSWORD
+- SIDEKIQ_USERNAME
+- SIDEKIQ_PASSWORD
+- REDIS_PASSWORD
+- REDIS_HOST
 
-Run `rake db:create` to create the database
+The last preparatory steps:
+```bash
+bundle install # install missing gems
+rake db:create # create the database
+rake db:migrate # prepare the database
+rspec spec/ # run the tests
+```
 
-Run `rake db:migrate`
+#### Starting the server
 
-Run `rspec` to execute tests
+> Server starts on http://localhost:5000/
 
-## To run the server
 To run the server with background jobs:
-* Run command `foreman start`
-To run the server without background jobs:
-* Run command `bundle exec puma`
+```bash
+foreman start
+```
 
-`Server starts on http://localhost:5000/`
+To run the server without background jobs:
+```bash
+bundle exec puma
+```
 
 
 ## License
