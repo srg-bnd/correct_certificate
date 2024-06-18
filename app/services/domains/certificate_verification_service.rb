@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Domains::CertificateVerificationService < Service
   ERRORS = ErrorCodes::Domains::CertificateVerificationErrors
   HAS_EXPIRED = 'certificate has expired'
@@ -29,7 +27,7 @@ class Domains::CertificateVerificationService < Service
     return ERRORS::CONNECTION_FAILED if e.message.include?(UNABLE_CERT)
 
     ErrorCodes::ERROR
-  rescue Exception => e
+  rescue StandardError => _e
     ErrorCodes::ERROR
   else
     checking_params(result)
