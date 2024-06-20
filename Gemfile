@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'rails', '~> 6.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -22,15 +22,14 @@ gem 'dotenv-rails', '~> 2.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# Ruby state machines
+gem 'aasm'
 # An opinionated framework for creating REST-like APIs in Ruby
 gem 'grape'
 # An API focused facade that sits on top of an object model
 gem 'grape-entity'
-# Ruby state machines
-gem 'aasm'
 # Implementation of a Service Object
 gem 'single_action_service', '0.3.0'
-
 
 # Provides SSL, TLS and general purpose cryptography.
 gem 'openssl'
