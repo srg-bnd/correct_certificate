@@ -81,10 +81,11 @@ rspec spec/ # run the tests
 
 #### Starting the server
 
-> Server starts on http://localhost:5000/
+> Server starts on http://localhost:6000/
 
 To run the server with background jobs:
 ```bash
+gem install foreman
 foreman start
 ```
 
