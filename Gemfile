@@ -10,9 +10,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.2.0'
 # Background jobs adapter
-gem 'sidekiq', '5.2.7'
+gem 'sidekiq'
 # Lightweight job scheduler extension for Sidekiq
 gem 'sidekiq-scheduler'
 # Reduces boot times through caching; required in config/boot.rb

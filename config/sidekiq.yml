@@ -1,12 +1,13 @@
 :concurrency: 5
 development:
-  :concurrency: 3
+  :concurrency: 1
 production:
   :concurrency: 1
 :queues:
   - default
-:schedule:
-  certificate_verification:
-    every: 20m
-    class: CertificateVerificationJob
-    queue: default
+:scheduler:
+  :schedule:
+    certificate_verification:
+      every: 30m
+      class: CertificateVerificationJob
+      queue: default
