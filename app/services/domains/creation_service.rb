@@ -14,7 +14,7 @@ class Domains::CreationService < Service
   private
 
   def init_state(domain)
-    result = CertificateVerificationService.new(domain).call
+    result = ::Domains::CertificateVerificationService.new(domain).call
 
     result.success? ? domain.success! : domain.failure!
   end
