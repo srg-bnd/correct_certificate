@@ -29,7 +29,7 @@ POST |/domain|track the domain
 - GET /status:
   - params
     - filters
-        - name: String
+        - name: String (domain)
     - order_column
         - created_at: Datetime (default)
     - order_type: String
@@ -38,14 +38,14 @@ POST |/domain|track the domain
     - page: Integer
     - per_page: Integer
   - response: Array
-    - name: String
+    - name: String (domain)
     - status: String
 
 - POST /domain
   - params
-    - name: String
+    - name: String (domain)
   - response: Object
-    - name: String
+    - name: String (domain)
     - status: String
 
 
