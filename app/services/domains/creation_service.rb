@@ -1,6 +1,6 @@
 class Domains::CreationService < Service
   def call(params)
-    domain = Domain.build(params)
+    domain = Domain.new(params)
 
     ApplicationRecord.transaction do
       return form_error(domain) unless domain.save
