@@ -10,43 +10,48 @@ The monitored parameters:
 * The certificate expires in less than 1 week
 * The certificate has expired
 * SSL error
-* Correct Certificate
 
 ## API
 
-Format:
+* path: `api/v1`
+* format: `application/json`
 
-* API: `json`
-* URL: `api/v1/path`
-
-method  |path |action|
-------------- |-------------| ------------- |
-GET  |/status|state of the domains |
-POST |/domain|track the domain |
+| method | path    | action                |
+| ------ | ------- | --------------------- |
+| GET    | /status | list of domain states |
+| POST   | /domain | track the domain      |
 
 ### Description
 
-* GET /status:
-  * params
-    * filters
-      * name: String (domain)
-    * order_column
-      * created_at: Datetime (default)
-    * order_type: String
-      * asc
-      * desc (default)
-    * page: Integer
-    * per_page: Integer
-  * response: Array
-    * name: String (domain)
-    * status: String
+<details>
+  <summary>GET /status:</summary>
 
-* POST /domain
-  * params
+* params
+  * filters
     * name: String (domain)
-  * response: Object
-    * name: String (domain)
-    * status: String
+  * order_column
+    * created_at: Datetime (default)
+  * order_type: String
+    * asc
+    * desc (default)
+  * page: Integer
+  * per_page: Integer
+* response: Array
+  * name: String (domain)
+  * status: String
+
+</details>
+
+<details>
+  <summary>POST /domain:</summary>
+
+* params
+  * name: String (domain)
+* response: Object
+  * name: String (domain)
+  * status: String
+
+</details>
 
 ## Getting Started
 
