@@ -14,7 +14,7 @@ class Domains::FilteringService < Service
     success(domains)
   end
 
-  protected
+  private
 
   def with_query(domains, query)
     query = "%#{query}%"

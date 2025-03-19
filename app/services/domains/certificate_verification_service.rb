@@ -14,7 +14,7 @@ class Domains::CertificateVerificationService < Service
     success(nil)
   end
 
-  protected
+  private
 
   def domain_name
     @domain&.name

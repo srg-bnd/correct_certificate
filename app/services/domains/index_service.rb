@@ -9,7 +9,7 @@ class Domains::IndexService < Service
     success(domains)
   end
 
-  protected
+  private
 
   def filter_list(domains, params)
     Domains::FilteringService.new(domains).call(params).data!
