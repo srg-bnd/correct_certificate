@@ -19,8 +19,6 @@ gem 'sidekiq-scheduler'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Managing ENV variables
 gem 'dotenv-rails', '~> 2.7'
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
 
 # Ruby state machines
 gem 'aasm'
